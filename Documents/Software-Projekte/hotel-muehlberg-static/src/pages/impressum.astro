@@ -1,0 +1,115 @@
+---
+import PublicLayout from '../layouts/PublicLayout.astro';
+
+const hotelName = 'Hotel & Pension Am Mühlberg';
+const hotelPhone = '+49 3542 875695';
+const hotelEmail = 'info@muehlberg-spreewald.de';
+---
+
+<PublicLayout
+  title="Impressum – Hotel am Mühlberg"
+  description="Impressum des Hotel am Mühlberg in Lübbenau/Spreewald."
+  noindex={true}
+>
+  <!-- Page Header -->
+  <div class="bg-[var(--color-brown-900)] py-14 md:py-20 text-white">
+    <div class="container-hotel text-center">
+      <h1 class="font-display text-3xl md:text-4xl font-semibold">Impressum</h1>
+      <div class="w-8 h-px bg-[var(--color-gold-500)] mx-auto mt-5"></div>
+    </div>
+  </div>
+
+  <div class="container-hotel py-16 max-w-2xl">
+
+    <!-- § 5 TMG -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1 h-5 bg-[var(--color-gold-500)] flex-shrink-0"></div>
+        <h2 class="font-display font-semibold text-[var(--color-brown-900)] text-lg">Angaben gemäß § 5 TMG</h2>
+      </div>
+      <div class="text-sm text-[var(--color-text-muted)] leading-relaxed space-y-1 pl-4">
+        <p class="font-medium text-[var(--color-brown-800)]">{hotelName}</p>
+        <p>Inhaber: Jörg Teller</p>
+        <p>Luckauer Landstraße 12</p>
+        <p>03222 Lübbenau/Spreewald</p>
+        <p>Brandenburg, Deutschland</p>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1 h-5 bg-[var(--color-gold-500)] flex-shrink-0"></div>
+        <h2 class="font-display font-semibold text-[var(--color-brown-900)] text-lg">Kontakt</h2>
+      </div>
+      <div class="text-sm text-[var(--color-text-muted)] leading-relaxed space-y-1 pl-4">
+        <p>
+          Telefon:&ensp;
+          <a href={`tel:${hotelPhone.replace(/\s/g, '')}`} class="text-[var(--color-gold-600)] hover:underline">{hotelPhone}</a>
+        </p>
+        <p>
+          E-Mail:&ensp;
+          <a href={`mailto:${hotelEmail}`} class="text-[var(--color-gold-600)] hover:underline">{hotelEmail}</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Haftungsausschluss -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1 h-5 bg-[var(--color-gold-500)] flex-shrink-0"></div>
+        <h2 class="font-display font-semibold text-[var(--color-brown-900)] text-lg">Haftungsausschluss</h2>
+      </div>
+      <div class="text-sm text-[var(--color-text-muted)] leading-relaxed pl-4 space-y-3">
+        <p>
+          Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit
+          und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+        </p>
+        <p>
+          Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den
+          allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+          verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.
+        </p>
+      </div>
+    </section>
+
+    <!-- Urheberrecht -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1 h-5 bg-[var(--color-gold-500)] flex-shrink-0"></div>
+        <h2 class="font-display font-semibold text-[var(--color-brown-900)] text-lg">Urheberrecht</h2>
+      </div>
+      <div class="text-sm text-[var(--color-text-muted)] leading-relaxed pl-4">
+        <p>
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht.
+          Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes
+          bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+        </p>
+      </div>
+    </section>
+
+    <!-- Streitschlichtung -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-5">
+        <div class="w-1 h-5 bg-[var(--color-gold-500)] flex-shrink-0"></div>
+        <h2 class="font-display font-semibold text-[var(--color-brown-900)] text-lg">Streitschlichtung</h2>
+      </div>
+      <div class="text-sm text-[var(--color-text-muted)] leading-relaxed pl-4 space-y-2">
+        <p>
+          Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+          <a
+            href="https://ec.europa.eu/consumers/odr/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-[var(--color-gold-600)] hover:underline"
+          >https://ec.europa.eu/consumers/odr/</a>.
+        </p>
+        <p>
+          Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+          Verbraucherschlichtungsstelle teilzunehmen.
+        </p>
+      </div>
+    </section>
+
+  </div>
+</PublicLayout>

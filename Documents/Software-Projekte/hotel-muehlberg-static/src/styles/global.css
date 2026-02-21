@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Primary: Warm Dark Brown / Espresso ─────────────────────────────────── */
+  --color-brown-50:  #faf7f4;
+  --color-brown-100: #f2ebe3;
+  --color-brown-200: #e4d4c3;
+  --color-brown-300: #cfb49a;
+  --color-brown-400: #b8906e;
+  --color-brown-500: #9e6f4a;
+  --color-brown-600: #7e5538;
+  --color-brown-700: #5e3d27;
+  --color-brown-800: #3e2a1a;
+  --color-brown-900: #2a1c10;
+
+  /* ── Gold / Warm Cream Accent ────────────────────────────────────────────── */
+  --color-gold-300: #e8c97a;
+  --color-gold-400: #d4a843;
+  --color-gold-500: #b8891a;
+  --color-gold-600: #956d10;
+
+  /* ── Neutral Warm Tones ──────────────────────────────────────────────────── */
+  --color-background:   #F5F0EB;
+  --color-surface:      #FFFFFF;
+  --color-surface-warm: #FAF7F3;
+  --color-text:         #1C1410;
+  --color-text-muted:   #6B5C50;
+  --color-border:       #DDD5CB;
+
+  /* Typography */
+  --font-family-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-family-script:  'Great Vibes', cursive;
+  --font-family-sans:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono:    'JetBrains Mono', 'Courier New', monospace;
+}
+
+/* ─── Base Reset ─────────────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography ─────────────────────────────────────────────────────────── */
+
+.font-display {
+  font-family: var(--font-family-display);
+}
+
+.font-script {
+  font-family: var(--font-family-script);
+}
+
+/* ─── Accessibility ───────────────────────────────────────────────────────── */
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--color-brown-900);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.1s;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-gold-500);
+  outline-offset: 2px;
+}
+
+/* ─── Utilities ──────────────────────────────────────────────────────────── */
+
+.container-hotel {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 3rem);
+}
+
+/* Button utilities */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: var(--color-brown-800);
+  color: #fff;
+  font-family: var(--font-family-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--color-brown-800);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+.btn-primary:hover {
+  background-color: var(--color-brown-900);
+  border-color: var(--color-brown-900);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background-color: transparent;
+  color: var(--color-brown-800);
+  font-family: var(--font-family-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  border: 1px solid var(--color-brown-800);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+.btn-outline:hover {
+  background-color: var(--color-brown-800);
+  color: #fff;
+}
+
+/* Smooth image loading */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
