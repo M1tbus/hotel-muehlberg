@@ -1,0 +1,136 @@
+---
+import PublicLayout from '../layouts/PublicLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+
+const facilities = [
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21H3a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M14 3h4a2 2 0 012 2v4"/><path d="M14 21h4a2 2 0 002-2v-4"/><path d="M3 10h18"/></svg>`, label: 'Sanitäranlagen' },
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><circle cx="12" cy="20" r="1" fill="currentColor"/></svg>`, label: 'Kostenloses WLAN' },
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`, label: 'Stromanschluss' },
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7c3-2 6-2 9 0s6 2 9 0"/><path d="M3 12c3-2 6-2 9 0s6 2 9 0"/><path d="M3 17c3-2 6-2 9 0s6 2 9 0"/></svg>`, label: 'Grillmöglichkeiten' },
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 014 13C4 7 11 4 11 4s7 3 7 9a7 7 0 01-7 7z"/><path d="M11 20V4"/></svg>`, label: 'Zeltwiese' },
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M6 15l3-6h6l3 6"/><path d="M12 9V5"/><circle cx="12" cy="4" r="1" fill="currentColor"/></svg>`, label: 'Fahrradständer' },
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>`, label: 'Autoparkplatz' },
+  { icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`, label: 'Restaurant nebenan' },
+];
+---
+
+<PublicLayout
+  title="Camping am Mühlberg Lübbenau – Spreewald"
+  description="Campingplatz direkt am Hotel am Mühlberg in Lübbenau/Spreewald. 50 Stellplätze, WLAN, Strom, ideal für Radtouristen. Ab 12 € pro Nacht."
+>
+  <PageHeader tagline="Natur erleben" title="Camping" pattern="waves" />
+
+  <section class="py-20 md:py-28">
+    <div class="container-hotel">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Text content -->
+        <div>
+          <p class="font-script text-2xl text-[var(--color-brown-400)] mb-2" aria-hidden="true">Unser Campingplatz</p>
+          <h2 class="font-display text-3xl md:text-4xl font-semibold text-[var(--color-brown-900)] mb-6 leading-tight">
+            Direkt am Hotel, mitten in der Natur
+          </h2>
+          <p class="text-[var(--color-text-muted)] leading-relaxed mb-10">
+            Unser Campingplatz bietet 50 Stellplätze (80–140 m²) direkt am Hotel, ideal für Rad- und Autotouristen im Herzen des Spreewalds.
+          </p>
+
+          <!-- Facilities grid -->
+          <h3 class="font-display text-lg font-semibold text-[var(--color-brown-900)] mb-5">Einrichtungen</h3>
+          <ul class="grid grid-cols-2 gap-px bg-[var(--color-border)] mb-10" role="list">
+            {facilities.map(({ icon, label }) => (
+              <li class="flex items-center gap-3 p-4 bg-[var(--color-surface-warm)] hover:bg-white transition-colors">
+                <div class="w-4 h-4 text-[var(--color-gold-500)] flex-shrink-0" aria-hidden="true" set:html={icon} />
+                <span class="text-sm text-[var(--color-text-muted)]">{label}</span>
+              </li>
+            ))}
+          </ul>
+
+          <!-- Prices -->
+          <h3 class="font-display text-lg font-semibold text-[var(--color-brown-900)] mb-5">Preise pro Nacht</h3>
+          <div class="grid grid-cols-2 gap-px bg-[var(--color-border)] mb-10">
+            <div class="p-6 bg-[var(--color-surface-warm)]">
+              <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-[0.1em] mb-2">Zelt</p>
+              <p class="font-display text-2xl font-semibold text-[var(--color-brown-900)]">ab 12 €</p>
+            </div>
+            <div class="p-6 bg-[var(--color-surface-warm)]">
+              <p class="text-xs text-[var(--color-text-muted)] uppercase tracking-[0.1em] mb-2">Wohnwagen / Mobil</p>
+              <p class="font-display text-2xl font-semibold text-[var(--color-brown-900)]">ab 18 €</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/kontakt" class="btn-primary">Stellplatz anfragen</a>
+            <a
+              href="https://www.camping-luebbenau.de"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center justify-center gap-2 px-6 py-3 border border-[var(--color-border)] hover:border-[var(--color-gold-500)] text-[var(--color-brown-700)] hover:text-[var(--color-brown-900)] text-xs font-medium tracking-[0.1em] uppercase transition-colors"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+              </svg>
+              Camping-Website
+            </a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div
+          class="border border-[var(--color-gold-500)]/30 bg-cover bg-center bg-no-repeat"
+          style="aspect-ratio: 4/3; background-image: url('/images/bild-10.jpg');"
+          role="img"
+          aria-label="Campingplatz am Mühlberg mit Stellplätzen im Grünen"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Separater Camping-Website-Hinweis -->
+  <section class="py-12 bg-[var(--color-surface-warm)] border-y border-[var(--color-border)]">
+    <div class="container-hotel">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-start gap-4">
+          <div class="w-10 h-10 border border-[var(--color-gold-500)] flex items-center justify-center text-[var(--color-gold-500)] flex-shrink-0" aria-hidden="true">
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 20A7 7 0 014 13C4 7 11 4 11 4s7 3 7 9a7 7 0 01-7 7z"/>
+              <path d="M11 20V4"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-semibold text-[var(--color-brown-900)] mb-1">Separater Campingbereich</h3>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed max-w-xl">
+              Unser Campingplatz hat eine eigene Website mit allen Details zu Stellplätzen, Preisen und Buchungsmöglichkeiten.
+            </p>
+          </div>
+        </div>
+        <a
+          href="https://www.camping-luebbenau.de"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex-shrink-0 inline-flex items-center gap-2 px-7 py-3 bg-[var(--color-brown-900)] hover:bg-[var(--color-gold-500)] text-white text-xs font-medium tracking-[0.12em] uppercase transition-colors"
+        >
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+          </svg>
+          www.camping-luebbenau.de
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-[var(--color-brown-900)]" aria-labelledby="cta-camping-heading">
+    <div class="container-hotel text-center">
+      <p class="font-script text-3xl text-[var(--color-gold-300)] mb-2" aria-hidden="true">Ihr Stellplatz wartet</p>
+      <h2 id="cta-camping-heading" class="font-display text-3xl md:text-4xl font-semibold text-white mb-4">
+        Jetzt anfragen
+      </h2>
+      <p class="text-white/60 mb-10 max-w-lg mx-auto text-sm leading-relaxed">
+        Kontaktieren Sie uns für Verfügbarkeit und Reservierungen – wir beraten Sie gerne persönlich.
+      </p>
+      <a href="/kontakt" class="inline-flex items-center gap-2 px-8 py-3.5 bg-[var(--color-gold-500)] hover:bg-[var(--color-gold-600)] text-white text-xs font-medium tracking-[0.12em] uppercase transition-colors">
+        Kontakt aufnehmen
+      </a>
+    </div>
+  </section>
+</PublicLayout>

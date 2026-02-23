@@ -1,0 +1,128 @@
+---
+import PublicLayout from '../layouts/PublicLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+
+const attractions = [
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="15" r="4"/><circle cx="18" cy="15" r="4"/><path d="M6 15l3-6h6l3 6"/><path d="M12 9V5"/><circle cx="12" cy="4" r="1" fill="currentColor"/></svg>`,
+    title: 'Radfahren',
+    description: 'Über 1.500 km markierte Radwege führen durch den Spreewald. Unser Hotel liegt direkt am Spreewaldradweg.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M5 20V10l7-6 7 6v10"/><path d="M3 14c2 2 4 2 6 0s4-2 6 0 4 2 6 0"/><path d="M12 4v6"/><path d="M9 14h6"/></svg>`,
+    title: 'Kahnfahrten',
+    description: 'Erkunden Sie den Spreewald auf traditionellen Spreewaldkähnen – ein unvergessliches Erlebnis.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/><path d="M12 2v4"/><path d="M10 4h4"/></svg>`,
+    title: 'Altstadt Lübbenau',
+    description: 'Nur 2 km entfernt liegt die historische Altstadt mit Spreewaldmuseum und Kräuterhaus.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0"/><path d="M2 17c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0"/><path d="M2 7c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0"/></svg>`,
+    title: 'Spreewelten',
+    description: 'Der Spreewelten-Freizeitpark ist nur 5 Minuten entfernt – ideal für Familien mit Kindern.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 12 7 9 5 5c4 0 7 3 7 3"/><path d="M12 12c0 0 5-3 7-7-4 0-7 3-7 3"/><path d="M12 12c0 0-3-5-1-9 3 2 3 6 1 9"/><path d="M9 22h6"/></svg>`,
+    title: 'Tropical Islands',
+    description: 'Die weltgrößte Indoorhalle mit Tropenwelten liegt nur 20 Minuten entfernt.',
+  },
+  {
+    icon: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 014 13C4 7 11 4 11 4s7 3 7 9a7 7 0 01-7 7z"/><path d="M11 20V4"/></svg>`,
+    title: 'Wandern & Natur',
+    description: 'Das UNESCO-Biosphärenreservat Spreewald bietet unzählige Wanderwege und einzigartige Flora und Fauna.',
+  },
+];
+
+const distances = [
+  { place: 'Altstadt Lübbenau', dist: '2 km' },
+  { place: 'Spreewald Hafen',   dist: '3 km' },
+  { place: 'Spreewelten',       dist: '5 min' },
+  { place: 'Tropical Islands',  dist: '20 min' },
+  { place: 'Cottbus',           dist: '35 min' },
+  { place: 'Berlin',            dist: '90 min' },
+  { place: 'Dresden',           dist: '90 min' },
+  { place: 'A13 Ausfahrt',      dist: '5 min' },
+];
+---
+
+<PublicLayout
+  title="Spreewald entdecken – Hotel am Mühlberg Lübbenau"
+  description="Ihr Ausgangspunkt für den Spreewald: Kahnfahrten, Radtouren, Altstadt Lübbenau, Tropical Islands. Hotel am Mühlberg – ideal gelegen an der A13/A15."
+>
+  <PageHeader tagline="Erkunden Sie" title="den Spreewald" pattern="waves" />
+
+  <!-- Intro -->
+  <section class="py-20 md:py-28 bg-white" aria-labelledby="spreewald-intro-heading">
+    <div class="container-hotel">
+      <div class="text-center mb-14 max-w-2xl mx-auto">
+        <p class="font-script text-2xl text-[var(--color-brown-400)] mb-2" aria-hidden="true">Ihr idealer Ausgangspunkt</p>
+        <h2 id="spreewald-intro-heading" class="font-display text-3xl md:text-4xl font-semibold text-[var(--color-brown-900)] mb-5">
+          Natur, Kultur & Erholung
+        </h2>
+        <div class="w-8 h-px bg-[var(--color-gold-500)] mx-auto mb-6"></div>
+        <p class="text-[var(--color-text-muted)] leading-relaxed">
+          Das Hotel am Mühlberg liegt strategisch günstig: Direkt an der A13/A15 und doch mitten in der Natur.
+          Von hier aus erreichen Sie die schönsten Orte des Spreewalds in wenigen Minuten.
+        </p>
+      </div>
+
+      <!-- Attractions grid -->
+      <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)]" role="list">
+        {attractions.map(({ icon, title, description }) => (
+          <li class="flex flex-col items-start gap-4 p-7 bg-[var(--color-surface-warm)] hover:bg-white transition-colors">
+            <div class="w-10 h-10 text-[var(--color-brown-600)] flex-shrink-0" aria-hidden="true" set:html={icon} />
+            <div>
+              <h3 class="font-display text-lg font-semibold text-[var(--color-brown-900)] mb-2">{title}</h3>
+              <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{description}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Distances -->
+  <section class="py-20 md:py-28 bg-[var(--color-surface-warm)]" aria-labelledby="distances-heading">
+    <div class="container-hotel">
+      <div class="text-center mb-14">
+        <p class="font-script text-2xl text-[var(--color-brown-400)] mb-2" aria-hidden="true">Vom Hotel aus</p>
+        <h2 id="distances-heading" class="font-display text-3xl md:text-4xl font-semibold text-[var(--color-brown-900)]">
+          Entfernungen
+        </h2>
+        <div class="w-8 h-px bg-[var(--color-gold-500)] mx-auto mt-5"></div>
+      </div>
+
+      <div class="max-w-2xl mx-auto border-t border-[var(--color-border)]">
+        {distances.map(({ place, dist }) => (
+          <div class="flex justify-between items-center py-4 border-b border-[var(--color-border)]">
+            <span class="text-sm text-[var(--color-text-muted)]">{place}</span>
+            <span class="text-sm font-semibold text-[var(--color-brown-900)] font-display">{dist}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-[var(--color-brown-900)]" aria-labelledby="cta-spreewald-heading">
+    <div class="container-hotel text-center">
+      <p class="font-script text-3xl text-[var(--color-gold-300)] mb-2" aria-hidden="true">Ihr Ausgangspunkt</p>
+      <h2 id="cta-spreewald-heading" class="font-display text-3xl md:text-4xl font-semibold text-white mb-4">
+        Jetzt buchen & erleben
+      </h2>
+      <p class="text-white/60 mb-10 max-w-lg mx-auto text-sm leading-relaxed">
+        Entdecken Sie den Spreewald vom Hotel am Mühlberg aus – wir freuen uns auf Ihren Besuch.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="/kontakt" class="inline-flex items-center gap-2 px-8 py-3.5 bg-[var(--color-gold-500)] hover:bg-[var(--color-gold-600)] text-white text-xs font-medium tracking-[0.12em] uppercase transition-colors">
+          Jetzt anfragen
+        </a>
+        <a href="/hotel" class="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 hover:border-white/40 text-white/70 hover:text-white text-xs font-medium tracking-[0.12em] uppercase transition-colors">
+          Unsere Zimmer
+        </a>
+      </div>
+    </div>
+  </section>
+</PublicLayout>

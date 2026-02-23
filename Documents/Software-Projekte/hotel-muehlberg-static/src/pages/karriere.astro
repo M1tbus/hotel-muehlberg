@@ -1,0 +1,153 @@
+---
+import PublicLayout from '../layouts/PublicLayout.astro';
+import PageHeader from '../components/sections/PageHeader.astro';
+
+const stellen = [
+  'Housekeeping / Zimmerreinigung',
+  'Rezeption & Empfang',
+  'Service & Küche (Kellner, Köche)',
+  'Hotelfachleute & Allrounder',
+  'Buchhaltung & Verwaltung',
+  'Gastronomie – Quereinsteiger willkommen',
+];
+---
+
+<PublicLayout
+  title="Karriere – Hotel am Mühlberg Lübbenau"
+  description="Wir suchen engagierte Mitarbeiterinnen und Mitarbeiter. Bewerben Sie sich jetzt beim Hotel am Mühlberg in Lübbenau/Spreewald. Housekeeping, Rezeption, Service und mehr."
+>
+  <PageHeader tagline="Werde Teil unseres Teams" title="Karriere" pattern="waves" />
+
+  <!-- Recruiting Intro -->
+  <section class="py-20 md:py-28 bg-[var(--color-surface-warm)]" aria-labelledby="karriere-heading">
+    <div class="container-hotel">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <!-- Text -->
+        <div>
+          <p class="font-script text-2xl text-[var(--color-brown-400)] mb-2" aria-hidden="true">Wir suchen Sie</p>
+          <h2 id="karriere-heading" class="font-display text-3xl md:text-4xl font-semibold text-[var(--color-brown-900)] mb-6 leading-tight">
+            Arbeiten mit Herz im Spreewald
+          </h2>
+          <div class="w-8 h-px bg-[var(--color-gold-500)] mb-8"></div>
+
+          <p class="text-[var(--color-text-muted)] leading-relaxed mb-4">
+            Das Hotel am Mühlberg ist ein familiengeführtes Haus – und genau das spürt man auch als Teil unseres Teams.
+            Wir suchen Menschen, die Lust auf eine abwechslungsreiche Tätigkeit in der Hotellerie und Gastronomie haben,
+            egal ob als Berufserfahrene oder als Quereinsteiger.
+          </p>
+          <p class="text-[var(--color-text-muted)] leading-relaxed mb-10">
+            Ob Vollzeit, Teilzeit, Nebenjob oder Werkstudent – wir sind flexibel.
+            Schüler und Studenten sind bei uns herzlich willkommen.
+          </p>
+
+          <!-- Was wir bieten -->
+          <div class="space-y-3 mb-10">
+            {[
+              'Familiäres, herzliches Arbeitsklima',
+              'Flexible Tätigkeitsbereiche',
+              'Einblick in verschiedene Hotelbereiche',
+              'Faire Vergütung',
+              'Offen für Quereinsteiger, Schüler & Studenten',
+              'Nebenjob und Minijob möglich',
+            ].map((benefit) => (
+              <div class="flex items-start gap-3">
+                <div class="w-1 h-4 bg-[var(--color-gold-500)] flex-shrink-0 mt-1"></div>
+                <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{benefit}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Kontakt-Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a
+              href="tel:+493542875695"
+              class="inline-flex items-center gap-2 px-7 py-3.5 bg-[var(--color-brown-900)] hover:bg-[var(--color-gold-500)] text-white text-xs font-medium tracking-[0.12em] uppercase transition-colors"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              Jetzt anrufen
+            </a>
+            <a
+              href="mailto:info@muehlberg-spreewald.de?subject=Bewerbung%20Hotel%20am%20M%C3%BChlberg"
+              class="inline-flex items-center gap-2 px-7 py-3.5 border border-[var(--color-border)] hover:border-[var(--color-gold-500)] text-[var(--color-brown-700)] hover:text-[var(--color-brown-900)] text-xs font-medium tracking-[0.12em] uppercase transition-colors"
+            >
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              Per E-Mail bewerben
+            </a>
+          </div>
+        </div>
+
+        <!-- Bild -->
+        <div class="overflow-hidden">
+          <img
+            src="/images/bild-11.jpg"
+            alt="Team Hotel am Mühlberg"
+            class="w-full aspect-[4/3] object-cover"
+            width={600}
+            height={450}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Offene Stellen -->
+  <section class="py-20 md:py-24 bg-white" aria-labelledby="stellen-heading">
+    <div class="container-hotel">
+      <div class="text-center mb-14">
+        <p class="font-script text-2xl text-[var(--color-brown-400)] mb-2" aria-hidden="true">Was wir suchen</p>
+        <h2 id="stellen-heading" class="font-display text-3xl md:text-4xl font-semibold text-[var(--color-brown-900)]">
+          Offene Bereiche
+        </h2>
+        <div class="w-8 h-px bg-[var(--color-gold-500)] mx-auto mt-5"></div>
+        <p class="mt-6 text-[var(--color-text-muted)] max-w-xl mx-auto text-sm leading-relaxed">
+          Wir suchen laufend Verstärkung in folgenden Bereichen – auch ohne Vorerfahrung.
+          Quereinsteiger sind ausdrücklich willkommen.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-[var(--color-border)] max-w-4xl mx-auto">
+        {stellen.map((stelle) => (
+          <div class="bg-[var(--color-surface-warm)] p-7 flex items-start gap-4">
+            <div class="w-1 h-5 bg-[var(--color-gold-500)] flex-shrink-0 mt-0.5"></div>
+            <p class="text-sm font-medium text-[var(--color-brown-900)] leading-snug">{stelle}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-[var(--color-brown-900)]" aria-labelledby="cta-karriere-heading">
+    <div class="container-hotel text-center">
+      <p class="font-script text-3xl text-[var(--color-gold-300)] mb-2" aria-hidden="true">Einfach melden</p>
+      <h2 id="cta-karriere-heading" class="font-display text-3xl md:text-4xl font-semibold text-white mb-4">
+        Wir freuen uns auf Sie
+      </h2>
+      <p class="text-white/60 mb-10 max-w-md mx-auto text-sm leading-relaxed">
+        Kein langes Bewerbungsverfahren – rufen Sie einfach an oder schreiben Sie uns eine kurze E-Mail. Wir melden uns schnell.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href="tel:+493542875695"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-[var(--color-gold-500)] hover:bg-[var(--color-gold-600)] text-white text-xs font-medium tracking-[0.12em] uppercase transition-colors"
+        >
+          +49 3542 875695
+        </a>
+        <a
+          href="mailto:info@muehlberg-spreewald.de?subject=Bewerbung%20Hotel%20am%20M%C3%BChlberg"
+          class="inline-flex items-center gap-2 px-8 py-3.5 border border-white/20 hover:border-white/40 text-white/70 hover:text-white text-xs font-medium tracking-[0.12em] uppercase transition-colors"
+        >
+          info@muehlberg-spreewald.de
+        </a>
+      </div>
+    </div>
+  </section>
+</PublicLayout>

@@ -1,0 +1,64 @@
+---
+interface Props {
+  tagline?: string;
+  title: string;
+  pattern?: 'leaves' | 'waves' | 'diamonds';
+}
+
+const { tagline, title, pattern = 'waves' } = Astro.props;
+---
+
+<div class="bg-[var(--color-brown-900)] py-16 md:py-24 text-white relative overflow-hidden">
+
+  <!-- Dekoratives SVG-Hintergrundmuster -->
+  <div class="absolute inset-0 pointer-events-none select-none" aria-hidden="true">
+    {pattern === 'leaves' && (
+      <svg class="absolute top-0 right-0 w-80 h-80 opacity-[0.05]" viewBox="0 0 300 300" fill="none" stroke="white" stroke-width="0.7">
+        {[
+          [20, 20], [80, 10], [140, 25], [200, 10], [260, 20],
+          [50, 80], [110, 65], [170, 80], [230, 65],
+          [20, 140], [80, 125], [140, 140], [200, 125], [260, 140],
+          [50, 200], [110, 185], [170, 200], [230, 185],
+          [20, 260], [80, 245], [140, 260], [200, 245], [260, 260],
+        ].map(([x, y]) => (
+          <g transform={`translate(${x},${y})`}>
+            <path d="M5 15 Q12 2 19 15 Q12 28 5 15Z"/>
+            <path d="M15 5 Q22 15 15 25 Q8 15 15 5Z"/>
+            <line x1="5" y1="15" x2="19" y2="15"/>
+            <line x1="15" y1="5" x2="15" y2="25"/>
+          </g>
+        ))}
+      </svg>
+    )}
+    {pattern === 'waves' && (
+      <svg class="absolute inset-0 w-full h-full opacity-[0.04]" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice" fill="none" stroke="white" stroke-width="1">
+        {[0, 30, 60, 90, 120, 150, 180].map((y) => (
+          <path d={`M0 ${y} Q75 ${y - 15} 150 ${y} Q225 ${y + 15} 300 ${y} Q375 ${y - 15} 450 ${y} Q525 ${y + 15} 600 ${y}`}/>
+        ))}
+      </svg>
+    )}
+    {pattern === 'diamonds' && (
+      <svg class="absolute top-0 right-0 w-72 h-full opacity-[0.04]" viewBox="0 0 200 400" fill="none" stroke="white" stroke-width="0.8">
+        {[
+          [30, 30], [90, 30], [150, 30],
+          [60, 80], [120, 80],
+          [30, 130], [90, 130], [150, 130],
+          [60, 180], [120, 180],
+          [30, 230], [90, 230], [150, 230],
+          [60, 280], [120, 280],
+          [30, 330], [90, 330], [150, 330],
+        ].map(([x, y]) => (
+          <polygon points={`${x} ${y - 18} ${x + 16} ${y} ${x} ${y + 18} ${x - 16} ${y}`}/>
+        ))}
+      </svg>
+    )}
+  </div>
+
+  <div class="container-hotel text-center relative z-10">
+    {tagline && (
+      <p class="font-script text-3xl md:text-4xl text-[var(--color-gold-300)] mb-2" aria-hidden="true">{tagline}</p>
+    )}
+    <h1 class="font-display text-4xl md:text-5xl font-semibold">{title}</h1>
+    <div class="w-8 h-px bg-[var(--color-gold-500)] mx-auto mt-6"></div>
+  </div>
+</div>
