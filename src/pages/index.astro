@@ -1,11 +1,40 @@
-<section class="bg-white">
-  <h1>Herzlich willkommen</h1>
-  <p>Your welcome message content here.</p>
-  <!-- Existing lines 123-186 content -->
-</section>
+---
+import { PublicLayout } from '../layouts/PublicLayout.astro';
+import { Hero } from '../components/Hero.astro';
+import { Highlights } from '../components/Highlights.astro';
+import { Zielgruppen } from '../components/Zielgruppen.astro';
+import { Familiengefuehrt } from '../components/Familiengefuehrt.astro';
+import { InhaberTestimonial } from '../components/InhaberTestimonial.astro';
+import { Veranstaltungen } from '../components/Veranstaltungen.astro';
+import { PhotoStrip } from '../components/PhotoStrip.astro';
+import { RecruitingBanner } from '../components/RecruitingBanner.astro';
+import { CTABanner } from '../components/CTABanner.astro';
+import { useIntersectionObserver } from '../scripts/intersectionObserver.js';
 
-<section class="bg-[var(--color-surface-warm)]">
-  <h1>Für jeden das Richtige</h1>
-  <p>Your content for everyone here.</p>
-  <!-- Existing lines 99-119 content -->
-</section>
+const features = [/* feature data */];
+const audiences = [/* audience data */];
+const eventRooms = [/* event room data */];
+const events = [/* event data */];
+const photoStrip = [/* photo strip data */];
+
+---
+
+<PublicLayout>
+  <Hero />
+  <Highlights features={features} />
+  <Zielgruppen audiences={audiences} />
+  <Familiengefuehrt />
+  <InhaberTestimonial />
+  <Veranstaltungen events={events} />
+  <PhotoStrip images={photoStrip} />
+  <RecruitingBanner />
+  <CTABanner />
+</PublicLayout>
+
+<script>
+  useIntersectionObserver();
+</script>
+
+<style>
+  /* All styles here */
+</style>
